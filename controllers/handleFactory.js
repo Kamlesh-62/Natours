@@ -82,6 +82,7 @@ exports.getAll = Model => catchAsync(async (req, res, next) => {
 
 
     const doc = await features.query;
+    // const doc = await features.query.explain();
 
     //run the query
     res.status(200).json({
