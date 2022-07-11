@@ -69,6 +69,7 @@ exports.getTourStats = catchAsync(async (req, res, next) => {
         }
     })
 })
+
 // real style project
 exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
 

@@ -1,10 +1,11 @@
 const express = require('express');
+
+// module export
 const { getAllTours, createTour, getTour, updateTour, deleteTour, aliasTopTours, getMonthlyPlan, getTourStats, getTourWithin, getDistances } = require('./../controllers/tourController')
 const authController = require('./../controllers/authController');
 const reviewRouter = require('../routes/reviewRoutes')
 
-
-
+// route init
 const router = express.Router();
 
 router.use('/:tourId/reviews', reviewRouter)
@@ -12,6 +13,7 @@ router.use('/:tourId/reviews', reviewRouter)
 // middleware to filter top 5 cheap...
 router.route('/top-5-cheap').get(aliasTopTours, getAllTours)
 router.route('/tour-stats').get(getTourStats);
+
 router.route('/monthly-plan/:year').get(
     authController.protect,
     authController.restrictTo('admin', 'lead-guide', 'guide'),
