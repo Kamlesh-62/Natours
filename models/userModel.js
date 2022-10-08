@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
         require: [true, 'Please confirm your password'],
         trim: true,
         validate: {
-            // this is only work on CREATE and  SAVA!!!
+            // this is only work on CREATE and  SAVE!!!
             validator: function(el){
                 return el === this.password;
             },
@@ -60,7 +60,7 @@ const userSchema = new mongoose.Schema({
     active:{
         type: Boolean,
         default: true,
-        select: false
+        select: false // only api builder can see
     }
    
 })
